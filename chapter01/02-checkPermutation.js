@@ -2,11 +2,11 @@ function checkPermute(stringOne, stringTwo) {
   if (stringOne.length !== stringTwo.length) {
     return false;
   } else {
-    var stringOneSorted = stringOne
+    let stringOneSorted = stringOne
       .split("")
       .sort()
       .join("");
-    var stringTwoSorted = stringTwo
+    let stringTwoSorted = stringTwo
       .split("")
       .sort()
       .join("");

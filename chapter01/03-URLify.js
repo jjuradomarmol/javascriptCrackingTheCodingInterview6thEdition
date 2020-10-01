@@ -1,6 +1,6 @@
 function replaceUrlSpaces(theString) {
-  const convertToArray = theString.trim().replace(/\s/g, "%20");
-  return convertToArray;
+  const theStringURLified = theString.trim().replace(/\s/g, "%20");
+  return theStringURLified;
 }
 
 console.log(replaceUrlSpaces("     Mr John Smith   "));

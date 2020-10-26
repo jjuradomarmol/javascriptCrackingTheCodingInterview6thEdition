@@ -13,7 +13,7 @@ function loopDetection(head) {
   slow = head;
   fast = head;
 
-  if (head.next === head) return true;
+  if (head.next === head) return head;
 
   while (fast.next.next) {
     slow = slow.next;

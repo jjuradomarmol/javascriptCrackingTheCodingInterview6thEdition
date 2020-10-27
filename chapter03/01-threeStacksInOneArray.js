@@ -4,83 +4,84 @@ class ThreeStacksInOneArray {
     this.middleBottom = 0;
     this.middleTop = 0;
   }
-}
 
-ThreeStacksInOneArray.prototype.pushArray1 = function (value) {
-  this.container.splice(this.middleBottom, 0, value);
-  this.middleBottom++;
-  this.middleTop++;
-};
-
-ThreeStacksInOneArray.prototype.pushArray2 = function (value) {
-  this.container.splice(this.middleTop, 0, value);
-  this.middleTop++;
-};
-
-ThreeStacksInOneArray.prototype.pushArray3 = function (value) {
-  this.container.push(value);
-};
-
-ThreeStacksInOneArray.prototype.popArray1 = function () {
-  if (this.isEmptyArray1()) {
-    return undefined;
-  }
-  var answer = this.container[this.middleBottom - 1];
-  this.container.splice(this.middleBottom - 1, 1);
-  this.middleBottom--;
-  this.middleTop--;
-  return answer;
-};
-
-ThreeStacksInOneArray.prototype.popArray2 = function () {
-  if (this.isEmptyArray2()) {
-    return undefined;
+  pushArray1(value) {
+    this.container.splice(this.middleBottom, 0, value);
+    this.middleBottom++;
+    this.middleTop++;
   }
 
-  var answer = this.container[this.middleTop - 1];
-  this.container.splice(this.middleTop - 1, 1);
-  if (this.middleBottom < this.middleTop) {
+  pushArray2(value) {
+    this.container.splice(this.middleTop, 0, value);
+    this.middleTop++;
+  }
+
+  pushArray3(value) {
+    this.container.push(value);
+  }
+
+  popArray1() {
+    if (this.isEmptyArray1()) {
+      return undefined;
+    }
+    var answer = this.container[this.middleBottom - 1];
+    this.container.splice(this.middleBottom - 1, 1);
+    this.middleBottom--;
     this.middleTop--;
-  }
-  return answer;
-};
-
-ThreeStacksInOneArray.prototype.popArray3 = function (value) {
-  if (this.isEmptyArray3()) {
-    return undefined;
+    return answer;
   }
 
-  return this.container.pop(value);
-};
+  popArray2() {
+    if (this.isEmptyArray2()) {
+      return undefined;
+    }
 
-ThreeStacksInOneArray.prototype.peekArray1 = function () {
-  return this.isEmptyArray1()
-    ? undefined
-    : this.container[this.middleBottom - 1];
-};
+    var answer = this.container[this.middleTop - 1];
+    this.container.splice(this.middleTop - 1, 1);
+    if (this.middleBottom < this.middleTop) {
+      this.middleTop--;
+    }
+    return answer;
+  }
 
-ThreeStacksInOneArray.prototype.peekArray2 = function () {
-  return this.isEmptyArray2() ? undefined : this.container[this.middleTop - 1];
-};
+  popArray3(value) {
+    if (this.isEmptyArray3()) {
+      return undefined;
+    }
 
-ThreeStacksInOneArray.prototype.peekArray3 = function () {
-  return this.isEmptyArray3()
-    ? undefined
-    : this.container[this.container.length - 1];
-};
+    return this.container.pop(value);
+  }
 
-ThreeStacksInOneArray.prototype.isEmptyArray1 = function () {
-  return this.middleBottom === 0;
-};
+  peekArray1() {
+    return this.isEmptyArray1()
+      ? undefined
+      : this.container[this.middleBottom - 1];
+  }
 
-ThreeStacksInOneArray.prototype.isEmptyArray2 = function () {
-  return this.middleBottom === this.middleTop;
-};
+  peekArray2() {
+    return this.isEmptyArray2()
+      ? undefined
+      : this.container[this.middleTop - 1];
+  }
 
-ThreeStacksInOneArray.prototype.isEmptyArray3 = function () {
-  return this.middleTop === this.container.length;
-};
+  peekArray3() {
+    return this.isEmptyArray3()
+      ? undefined
+      : this.container[this.container.length - 1];
+  }
 
+  isEmptyArray1() {
+    return this.middleBottom === 0;
+  }
+
+  isEmptyArray2() {
+    return this.middleBottom === this.middleTop;
+  }
+
+  isEmptyArray3() {
+    return this.middleTop === this.container.length;
+  }
+}
 
 // Proofs
 
@@ -131,3 +132,4 @@ console.log(isEmptya1, isEmptya2, isEmptya3);
 console.log(c1, c2, c3);
 console.log(d1, d2, d3);
 console.log(isEmptyb1, isEmptyb2, isEmptyb3);
+

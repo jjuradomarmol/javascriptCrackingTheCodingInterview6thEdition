@@ -17,7 +17,7 @@ class QueueViaStacks {
     while (this.stack1.length > 0) {
       this.stack2.push(this.stack1.pop());
     }
-    return this.stack2.pop();
+    this.stack2.pop();
   }
 
   peek() {

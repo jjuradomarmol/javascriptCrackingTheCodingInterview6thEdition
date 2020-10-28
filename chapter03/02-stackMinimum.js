@@ -5,7 +5,7 @@ class StackWithMinimum {
   }
 
   push(value) {
-    if (isNaN(this.min()) || value <= this.min()) {
+    if (value <= this.min() || isNaN(this.min())) {
       this.minimumsStack.push(value);
     }
     this.valuesStack.push(value);

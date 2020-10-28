@@ -16,7 +16,6 @@ class StackWithMinimum {
     if (value === this.min()) {
       this.minimumsStack.pop();
     }
-    return value;
   }
 
   min() {

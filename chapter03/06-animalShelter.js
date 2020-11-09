@@ -17,9 +17,9 @@ class Queue {
       this.front = node;
       this.back = node;
     } else {
-      var prevBack = this.back;
+      var previousBack = this.back;
       this.back = node;
-      prevBack.next = this.back;
+      previousBack.next = this.back;
     }
   }
 

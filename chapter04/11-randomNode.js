@@ -12,19 +12,19 @@ class Queue {
   }
 
   enqueue(value) {
-    var node = new LinkedList(value);
+    let node = new LinkedList(value);
     if (this.front === null) {
       this.front = node;
       this.back = node;
     } else {
-      var previousBack = this.back;
+      let previousBack = this.back;
       this.back = node;
       previousBack.next = this.back;
     }
   }
 
   dequeue() {
-    var dequeued = this.front;
+    let dequeued = this.front;
     if (this.front === this.back) {
       this.front = null;
       this.back = null;
@@ -91,15 +91,15 @@ class BinaryTree {
     if (this.left === null && this.right === null) {
       return null;
     }
-    var newBt = new BinaryTree();
-    var myQueue = new Queue();
+    let newBt = new BinaryTree();
+    let myQueue = new Queue();
     if (this.left !== null) {
       myQueue.enqueue(this.left);
     }
     if (this.right !== null) {
       myQueue.enqueue(this.right);
     }
-    var node;
+    let node;
     while (!myQueue.isEmpty) {
       node = myQueue.dequeue();
       newmyBt.insert(node.value);
@@ -115,14 +115,14 @@ class BinaryTree {
 
   delete(value) {
     if (value === this.value) {
-      var rebuilt = this.rebuild();
+      let rebuilt = this.rebuild();
       this.value = rebuilt.value;
       this.left = rebuilt.left;
       this.right = rebuilt.right;
     } else {
-      var myQueue = new Queue();
-      var built = false;
-      var node;
+      let myQueue = new Queue();
+      let built = false;
+      let node;
       myQueue.enqueue(this);
       while (!myQueue.isEmpty() && !built) {
         node = myQueue.dequeue();
@@ -150,10 +150,10 @@ class BinaryTree {
   }
 
   count() {
-    var myQueue = new Queue();
+    let myQueue = new Queue();
     myQueue.enqueue(this);
-    var node;
-    var count = 0;
+    let node;
+    let count = 0;
     while (!myQueue.isEmpty()) {
       node = myQueue.dequeue();
       count++;
@@ -168,10 +168,10 @@ class BinaryTree {
   }
 
   iterateToN(n) {
-    var myQueue = new Queue();
+    let myQueue = new Queue();
     myQueue.enqueue(this);
-    var node;
-    var count = 0;
+    let node;
+    let count = 0;
     while (!myQueue.isEmpty()) {
       node = myQueue.dequeue();
       count++;
@@ -189,15 +189,15 @@ class BinaryTree {
   }
 
   getRandomNode() {
-    var count = this.count();
-    var random = Math.floor(Math.random() * count) + 1;
+    let count = this.count();
+    let random = Math.floor(Math.random() * count) + 1;
     return this.iterateToN(random);
   }
 }
 
 // Proofs
 
-var myBt = new BinaryTree();
+let myBt = new BinaryTree();
 myBt.insert(4);
 myBt.insert(2);
 myBt.insert(6);
@@ -206,5 +206,5 @@ myBt.insert(3);
 myBt.insert(5);
 myBt.insert(7);
 
-var randomNumber = myBt.getRandomNode().value;
+let randomNumber = myBt.getRandomNode().value;
 console.log(randomNumber);

@@ -11,4 +11,4 @@ function pairwiseSwap(number) {
 
 // Proofs
 
-console.log(pairwiseSwap(4));
+console.log(pairwiseSwap(10));

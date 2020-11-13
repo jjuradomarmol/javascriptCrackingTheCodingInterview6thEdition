@@ -1,9 +1,9 @@
 function drawLine(screen, width, x1, x2, y) {
-  var byte;
-  var pixel;
+  let byte;
+  let pixel;
 
   function findByte(x, y, width) {
-    var start = (y * width) / 8;
+    let start = (y * width) / 8;
     return start + Math.floor(x / 8);
   }
 
@@ -11,7 +11,7 @@ function drawLine(screen, width, x1, x2, y) {
     return x % 8;
   }
 
-  for (var i = x1; i <= x2; i++) {
+  for (let i = x1; i <= x2; i++) {
     byte = findByte(i, y, width);
     pixel = findPixel(i);
     screen[byte][pixel] = 1;

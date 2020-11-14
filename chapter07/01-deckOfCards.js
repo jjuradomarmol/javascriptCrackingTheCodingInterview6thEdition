@@ -14,8 +14,8 @@ class Deck {
 
   newDeck() {
     this.clear();
-    var suits = ["\u2660", "\u2663", "\u2665", "\u2666"];
-    var numbers = [
+    let suits = ["\u2660", "\u2663", "\u2665", "\u2666"];
+    let numbers = [
       "A",
       "2",
       "3",
@@ -104,15 +104,15 @@ class Table {
   }
 
   runGame() {
-    var dealer = this.dealer;
-    var players = this.players;
+    let dealer = this.dealer;
+    let players = this.players;
 
     if (players.length === 0) {
       console.log("no players on table: game did not take place");
     } else {
       console.log("start blackjack game!");
       dealer.shuffleCards();
-      for (var i = 0; i < 2; i++) {
+      for (let i = 0; i < 2; i++) {
         players.forEach((player) => {
           player.receiveCard(dealer.dealCard());
         });

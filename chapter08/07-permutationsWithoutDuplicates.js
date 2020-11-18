@@ -1,6 +1,7 @@
 function permuteWithoutDuplicates(string) {
   let answers = [];
-  let recurse = function (currentPermutation, remainingChars) {
+
+  function recurse(currentPermutation, remainingChars) {
     if (remainingChars.length === 0) {
       answers.push(currentPermutation);
     } else {
@@ -11,8 +12,10 @@ function permuteWithoutDuplicates(string) {
         );
       }
     }
-  };
+  }
+
   recurse("", string);
+
   return answers;
 }
 

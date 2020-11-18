@@ -3,7 +3,7 @@ class TowersOfHanoi {
     this.first = [];
     this.second = [];
     this.third = [];
-    for (var i = n; i >= 1; i--) {
+    for (let i = n; i >= 1; i--) {
       this.first.push(i);
     }
   }
@@ -14,9 +14,9 @@ class TowersOfHanoi {
     } else if (depth === 1) {
       destination.push(start.pop());
     } else {
-      var currentDepth = depth;
-      var shortTower;
-      var placePiece;
+      let currentDepth = depth;
+      let shortTower;
+      let placePiece;
       if (depth % 2 === 0) {
         shortTower = mid;
         placePiece = destination;
@@ -24,7 +24,7 @@ class TowersOfHanoi {
         shortTower = destination;
         placePiece = mid;
       }
-      var shortTowerDepth = 0;
+      let shortTowerDepth = 0;
       shortTower.push(start.pop());
       shortTowerDepth++;
       currentDepth--;
